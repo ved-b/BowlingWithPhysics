@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     private bool isBallLaunched;
     private Rigidbody ballRB;
-
+    [SerializeField] private Transform launchIndicator;
     [SerializeField] private Transform ballAnchor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,8 @@ public class BallController : MonoBehaviour
         isBallLaunched = true;
         ballRB.isKinematic = false;
         transform.parent = null;
-        ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
+        ballRB.AddForce(launchIndicator.forward * force, ForceMode.Impulse);
+        launchIndicator.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

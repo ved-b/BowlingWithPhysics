@@ -22,9 +22,9 @@ public class BallController : MonoBehaviour
     private void LaunchBall(){
         if(isBallLaunched) return;
         isBallLaunched = true;
-        ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
         ballRB.isKinematic = false;
         transform.parent = null;
+        ballRB.AddForce(transform.forward * force, ForceMode.Impulse);
     }
 
     // Update is called once per frame
